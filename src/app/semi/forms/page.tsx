@@ -165,7 +165,7 @@ export default function Page() {
                         </Form.Cascader>
                     </Col>
                     <Col span={12}>
-                        <Form.TreeSelect
+                        {/* <Form.TreeSelect
                             field="tree"
                             style={style}
                             label='节点（TreeSelect）'
@@ -173,7 +173,7 @@ export default function Page() {
                             treeData={treeData}
                             filterTreeNode
                         >
-                        </Form.TreeSelect>
+                        </Form.TreeSelect> */}
                     </Col>
                 </Row>
                 <Row>
