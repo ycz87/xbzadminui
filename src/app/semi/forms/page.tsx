@@ -28,7 +28,7 @@ export default function Page() {
                         size: '222KB',
                         percent: 50,
                         preview: true,
-                        fileInstance: new File([new ArrayBuffer(2048)], 'resso.jpeg', { type: 'image/jpeg' }),
+                        // fileInstance: new File([new ArrayBuffer(2048)], 'resso.jpeg', { type: 'image/jpeg' }),
                         url: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/Resso.png'
                     },
                     {
@@ -38,7 +38,7 @@ export default function Page() {
                         size: '222KB',
                         percent: 50,
                         preview: true,
-                        fileInstance: new File([new ArrayBuffer(2048)], 'dy.jpeg', { type: 'image/jpeg' }),
+                        // fileInstance: new File([new ArrayBuffer(2048)], 'dy.jpeg', { type: 'image/jpeg' }),
                         url: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/dy.png'
                     }
                 ]
@@ -189,7 +189,7 @@ export default function Page() {
                 </Row>
                 <Row>
                     <Col span={24}>
-                        {/* <Form.Upload
+                        <Form.Upload
                             field='files'
                             label='证明文件（Upload）'
                             action='//semi.design/api/upload'
@@ -197,7 +197,7 @@ export default function Page() {
                             <Button icon={<IconUpload />} theme="light">
                                 点击上传
                             </Button>
-                        </Form.Upload> */}
+                        </Form.Upload>
                     </Col>
                 </Row>
             </Section>
