@@ -103,7 +103,7 @@ export default function Page() {
             initValues={initValues}
             style={{ padding: 10, width: '100%' }}
             onValueChange={(v) => console.log(v)}
-            onLoad={() => setLoading(0)}
+            onLoad={() => setLoading(false)}
         >
             <Section text={'基本信息'}>
                 <Row>
