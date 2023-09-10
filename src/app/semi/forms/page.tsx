@@ -189,7 +189,7 @@ export default function Page() {
                 </Row>
                 <Row>
                     <Col span={24}>
-                        <Form.Upload
+                        {/* <Form.Upload
                             field='files'
                             label='证明文件（Upload）'
                             action='//semi.design/api/upload'
@@ -197,7 +197,7 @@ export default function Page() {
                             <Button icon={<IconUpload />} theme="light">
                                 点击上传
                             </Button>
-                        </Form.Upload>
+                        </Form.Upload> */}
                     </Col>
                 </Row>
             </Section>
