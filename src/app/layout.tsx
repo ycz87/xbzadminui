@@ -7,7 +7,7 @@ import { IconSemiLogo, IconBell, IconHelpCircle, IconBytedanceLogo, IconStar, Ic
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { useRouter, } from 'next/navigation'
-import React, { useState, useMemo } from 'react';
+
 
 const inter = Inter({ subsets: ['latin'] })
 /*
@@ -23,7 +23,8 @@ export default function RootLayout({
 }) {
   const { Header, Footer, Sider, Content } = Layout;
   const router = useRouter();
-  const scroll = useMemo(() => ({ y: 300, x: 1200 }), []);
+
+  
   return (
     <html lang="en">
       <head></head>
