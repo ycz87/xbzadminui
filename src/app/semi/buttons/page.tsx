@@ -1,12 +1,7 @@
 'use client'
 
-
-import { Metadata } from 'next'
 import { Col, Row } from '@douyinfe/semi-ui';
 
-export const metadata: Metadata = {
-    title: '测试表单',
-}
 
 export default function Page() {
     

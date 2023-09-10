@@ -1,13 +1,7 @@
 'use client'
-
-
-import { Metadata } from 'next'
 import { Col, Row, Typography } from '@douyinfe/semi-ui';
 import styles from './styles.module.css'
 
-export const metadata: Metadata = {
-    title: '测试表单',
-}
 
 export default function Page() {
     const { Title } = Typography;
