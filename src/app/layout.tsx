@@ -6,7 +6,8 @@ import { Layout, Nav, Button, Breadcrumb, Skeleton, Avatar } from '@douyinfe/sem
 import { IconSemiLogo, IconBell, IconHelpCircle, IconBytedanceLogo, IconStar, IconUser, IconUserGroup, IconSetting } from '@douyinfe/semi-icons';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { useRouter } from 'next/navigation'
+import { useRouter, } from 'next/navigation'
+import React, { useState, useMemo } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 /*
@@ -22,10 +23,12 @@ export default function RootLayout({
 }) {
   const { Header, Footer, Sider, Content } = Layout;
   const router = useRouter();
+  const scroll = useMemo(() => ({ y: 300, x: 1200 }), []);
   return (
     <html lang="en">
+      <head></head>
       <body>
-        <Layout style={{ border: '1px solid var(--semi-color-border)' }}>
+        <Layout style={{ border: '1px solid var(--semi-color-border)'}}>
           <Header style={{ backgroundColor: 'var(--semi-color-bg-1)' }}>
             <div>
               <Nav mode="horizontal" defaultSelectedKeys={['Home']}>
@@ -76,20 +79,29 @@ export default function RootLayout({
           <Layout>
             <Sider style={{ backgroundColor: 'var(--semi-color-bg-1)' }}>
               <Nav
-                bodyStyle={{ height: 320 }}
+                bodyStyle={{ height: "640px" }}
                 defaultOpenKeys={['user', 'union']}
                 onSelect={data => console.log('trigger onSelect: ', data)}
                 onClick={data => {
                   console.log('trigger onClick: ', data);
-                  if (data.itemKey == "components") {
-                    router.push('/semi/components');
+                  switch (data.itemKey) {
+                    case "grids":
+                      router.push('/semi/grids');
+                      break;
+                    case "forms":
+                      router.push('/semi/forms');
+                      break;
+
                   }
+
                 }}
               >
                 <Nav.Header logo={<IconSemiLogo style={{ height: '36px', fontSize: 36 }} />} text={'Semi 运营后台'} />
                 <Nav.Item itemKey={'union'} text={'活动管理'} icon={<IconStar />} />
                 <Nav.Sub itemKey={'user'} text="Semi组件展示" icon={<IconUser />}>
-                  <Nav.Item itemKey={'components'} text={'测试'} />
+                  <Nav.Item itemKey={'grids'} text={'网格'} />
+                  <Nav.Item itemKey={'forms'} text={'表单'} />
+
                   <Nav.Item itemKey={'negative'} text={'非活跃用户'} />
                 </Nav.Sub>
                 <Nav.Sub itemKey={'union-management'} text="任务管理" icon={<IconUserGroup />}>
@@ -100,57 +112,61 @@ export default function RootLayout({
                 <Nav.Footer collapseButton={true} />
               </Nav>
             </Sider>
-            <Content
-              style={{
-                padding: '24px',
-                backgroundColor: 'var(--semi-color-bg-0)',
-              }}
-            >
-              <Breadcrumb
+            <Layout>
+              <Content
                 style={{
-                  marginBottom: '24px',
-                }}
-                routes={['首页', '当这个页面标题很长时需要省略', '上一页', '详情页']}
-              />
-              <div
-                style={{
-                  borderRadius: '10px',
-                  border: '1px solid var(--semi-color-border)',
-                  height: '376px',
-                  padding: '32px',
+                  padding: '24px',
+                  backgroundColor: 'var(--semi-color-bg-0)',
+                  height:'640px',
+                  overflow:'auto',
                 }}
               >
-                <Skeleton placeholder={<Skeleton.Paragraph rows={2} />} loading={true}>
-                  <p>Hi, Bytedance dance dance.</p>
-                  <p>Hi, Bytedance dance dance.</p>
-                </Skeleton>
-                {children}
-              </div>
-            </Content>
+                <Breadcrumb
+                  style={{
+                    marginBottom: '24px',
+                  }}
+                  routes={['首页', '当这个页面标题很长时需要省略', '上一页', '详情页']}
+                />
+                <div
+                  style={{
+                    borderRadius: '10px',
+                    border: '1px solid var(--semi-color-border)',
+                    minHeight: '376px',
+                    padding: '32px',
+                  }}
+                >
+                  {children}
+                </div>
+
+              </Content>
+              <Footer
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  padding: '20px',
+                  color: 'var(--semi-color-text-2)',
+                  backgroundColor: 'rgba(var(--semi-grey-0), 1)',
+                }}
+              >
+                <span
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <IconBytedanceLogo size="large" style={{ marginRight: '8px' }} />
+                  <span>Copyright © 2023 ByteDance. All Rights Reserved. </span>
+                </span>
+                <span>
+                  <span style={{ marginRight: '24px' }}>平台客服</span>
+                  <span>反馈建议</span>
+                </span>
+              </Footer>
+            </Layout>
+
           </Layout>
-          <Footer
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              padding: '20px',
-              color: 'var(--semi-color-text-2)',
-              backgroundColor: 'rgba(var(--semi-grey-0), 1)',
-            }}
-          >
-            <span
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <IconBytedanceLogo size="large" style={{ marginRight: '8px' }} />
-              <span>Copyright © 2023 ByteDance. All Rights Reserved. </span>
-            </span>
-            <span>
-              <span style={{ marginRight: '24px' }}>平台客服</span>
-              <span>反馈建议</span>
-            </span>
-          </Footer>
+
+
         </Layout>
       </body>
     </html>

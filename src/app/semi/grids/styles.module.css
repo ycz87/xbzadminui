@@ -1,0 +1,6 @@
+.colstyle {
+    background-color: var(--semi-color-primary-light-default);
+    outline:var(--semi-color-primary-light-active) 1px solid;
+    text-align: center;
+    line-height: 30px;
+}
